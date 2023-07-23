@@ -4,7 +4,6 @@ const { getResponse, validator } = require("../helpers/helpers");
 const messageCreateMiddleware = async (req, res, next) => {
     const validationRule = {
         "text": "string",
-        "chat_id": "required|string",
         "sender_id": "required|string",
         "media_id": "string"
     };

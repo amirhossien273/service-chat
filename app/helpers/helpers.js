@@ -2,7 +2,7 @@ const Validator = require('validatorjs');
 
 const getResponse = (res, status, data) => {
 
-    return res.status(500).json(data);
+    return res.status(status).json(data);
 };
 
 const validator = async (body, rules, customMessages, callback) => {

@@ -13,10 +13,10 @@ const showChat = async (req, res) => {
 
   
 
-    const chat1  = await chat.findOne({ where: { appointment_id: req.params.id },include: [{model: message, include: [{model: media}]}]});
+    const data  = await chat.findOne({ where: { appointment_id: req.params.id },include: [{model: message, include: [{model: media}]}]});
 
 
-    return getResponse(res, 200, {chat1});
+    return getResponse(res, 200, {data});
 };
 
 const createChat = async (req, res) => {
@@ -31,7 +31,7 @@ const createChat = async (req, res) => {
             chatData = await chat.create({ appointment_id });
         }
 
-        return getResponse(res, 500, {message: "Created Successfully.", data: chatData});
+        return getResponse(res, 200, {message: "Created Successfully.", data: chatData});
 
     }catch(error) {
 
